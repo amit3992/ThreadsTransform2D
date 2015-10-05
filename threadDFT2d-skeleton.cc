@@ -1,6 +1,6 @@
 // Threaded two-dimensional Discrete FFT transform
-// YOUR NAME HERE
-// ECE8893 Project 2
+// Amit Kulkarni
+// ECE6122 Project 2
 
 
 #include <iostream>
@@ -23,7 +23,7 @@ unsigned ReverseBits(unsigned v)
 { //  Provided to students
   unsigned n = N; // Size of array (which is even 2 power k value)
   unsigned r = 0; // Return value
-   
+
   for (--n; n > 0; n >>= 1)
     {
       r <<= 1;        // Shift return value
@@ -45,7 +45,7 @@ void MyBarrier_Init()// you will likely need some parameters)
 void MyBarrier() // Again likely need parameters
 {
 }
-                    
+
 void Transform1D(Complex* h, int N)
 {
   // Implement the efficient Danielson-Lanczos DFT here.
@@ -62,7 +62,7 @@ void* Transform2DTHread(void* v)
   return 0;
 }
 
-void Transform2D(const char* inputFN) 
+void Transform2D(const char* inputFN)
 { // Do the 2D transform here.
   InputImage image(inputFN);  // Create the helper object for reading the image
   // Create the global pointer to the image array data
@@ -77,7 +77,4 @@ int main(int argc, char** argv)
   if (argc > 1) fn = string(argv[1]);  // if name specified on cmd line
   // MPI initialization here
   Transform2D(fn.c_str()); // Perform the transform.
-}  
-  
-
-  
+}
